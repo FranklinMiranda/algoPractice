@@ -13,7 +13,6 @@ function partition(arr, low, high) {
       let swap = arr[j];
       arr[j] = arr[i];
       arr[i] = swap;
-      console.log(arr)
     }
   }
   let swap = arr[high];
@@ -33,5 +32,3 @@ function quickSort(arr, low, high) {
 const arr = [60, 10, 80, 30, 90, 40, 50, 100, 70];
 
 quickSort(arr, 0, arr.length - 1);
-
-console.log(arr);
