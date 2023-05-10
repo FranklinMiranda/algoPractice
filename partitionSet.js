@@ -2,7 +2,7 @@
 // Date : 5/9/2023
 // Description: A algorithm to determine if a set can be partitioned into two sets, each of which's sum of elements is equal
 
-const arr = [1, 2, 3, 4];
+const arr = [1, 1, 2, 3, 4, 5, 6];
 
 function permutation(arr) {
   let tempArr = [arr.slice(0, 1)];
@@ -36,8 +36,6 @@ function permutation(arr) {
 
 const permutations = permutation(arr);
 
-console.log(JSON.stringify(permutations));
-
 function partition(arr) {
   let sumable = false;
   let result = [];
@@ -69,3 +67,5 @@ function partition(arr) {
   }
   return sumable;
 }
+
+console.log(JSON.stringify(partition(permutations)));
