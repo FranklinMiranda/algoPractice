@@ -2,24 +2,22 @@
 // Date : 5/10/2023
 // Description: A algorithm to recursively generate permutations
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5, 6, 7];
 
 function permutations(arr) {
   if (arr.length > 2) {
-    let permArr = [];
-    let tempArr = arr.slice(-1);
+    const permArr = [];
+    const tempArr = arr.slice(-1);
     const remainArr = arr.slice(0, -1);
 
-    let result = permutations(remainArr);
+    const result = permutations(remainArr);
 
     result.forEach((el) => {
       for (let i = 0; i <= el.length; i++) {
         if (i === 0) {
           permArr.push(tempArr.concat(el));
         } else {
-          const permutation = el.slice(0, i).concat(tempArr).concat(el.slice(i));
-
-          permArr.push(permutation);
+          permArr.push(el.slice(0, i).concat(tempArr).concat(el.slice(i)));
         }
       }
     });
@@ -41,3 +39,5 @@ function permutations(arr) {
 }
 
 const perm = permutations(arr);
+
+console.log(perm.length);
