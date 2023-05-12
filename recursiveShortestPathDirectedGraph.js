@@ -3,7 +3,7 @@
 // Description: An algorithm that determines the shortest path between any two nodes of a directed graph recursively
 
 const graph = [
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   [
     [1, 2],
     [2, 3],
@@ -79,18 +79,36 @@ function allPathsPermutations(graphNodes, graphEdges) {
   return perm;
 }
 
-const graphPaths = allPathsPermutations(graph[0], graph[1]);
+function shortestPath(paths, start, end) {
+  const result = paths.filter((el) => {
+    return start === el[0] && end === el[el.length - 1];
+  });
 
-console.log(JSON.stringify(graphPaths));
+  result.sort((a, b) => a.length - b.length);
 
-// function shortestPath(paths, start, end) {
-//   const result = paths.reduce((total, el) => {
-//     if (start === el[0] && end === el[el.length - 1] && total === 0) {
-//       return [...el];
-//     } else if (start === el[0] && end === el[el.length - 1] && el.length < total.length) {
-//       return [...el];
-//     }
-//   }, 0);
-// }
+  return result[0];
+}
 
-//shortestPath(graphPaths, 9, 1);
+function shortestPathMatrix(graph) {
+  const shortestPathMatrix = [];
+  const nodes = new Array(...graph[0]);
+  const edges = new Array(...graph[1]);
+  const pathPermutations = allPathsPermutations(nodes, edges);
+
+  for (let i = 0; i < nodes.length; i++) {
+    shortestPathMatrix.push([]);
+
+    for (let j = 0; j < nodes.length; j++) {
+      const path = shortestPath(pathPermutations, nodes[i], nodes[j]);
+
+      if (path === undefined) {
+        shortestPathMatrix[i].push(-1);
+      } else {
+        shortestPathMatrix[i].push(path.length - 1);
+      }
+    }
+  }
+  return shortestPathMatrix;
+}
+
+console.log(JSON.stringify(shortestPathMatrix(graph)));
