@@ -1,23 +1,23 @@
 // Name : Franklin Miranda
 // Date : 5/13/2023
-// Description: Prim's algorithm is an algorithm for finding the minimum spanning tree of a edge-weighted graph
+// Description: An algorithm for finding a spanning tree for a graph
 
 const graph = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   [
-    [1, 2],
-    [2, 3],
-    [3, 7],
-    [3, 4],
-    [4, 5],
-    [5, 6],
-    [7, 6],
-    [7, 8],
-    [8, 6],
-    [8, 9],
-    [9, 8],
-    [9, 1],
-    [6, 9],
+    [1, 2, 5],
+    [2, 3, 7],
+    [3, 7, 3],
+    [3, 4, 8],
+    [4, 5, 1],
+    [5, 6, 3],
+    [7, 6, 2],
+    [7, 8, 3],
+    [8, 6, 9],
+    [8, 9, 1],
+    [9, 8, 4],
+    [9, 1, 6],
+    [6, 9, 3],
   ],
 ];
 
@@ -56,6 +56,5 @@ function spanningTree(graph, node) {
 
 spanningTree(graph, 3);
 
-function primAlgorithm(graph) {}
 
 
