@@ -1,27 +1,53 @@
 // Name : Franklin Miranda
-// Date : 5/13/2023
+// Date : 5/14/2023
 // Description: An algorithm to find a partial factorial of a array
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
+const arr = [1, 2, 3, 4, 5];
 
-function partialFactorial(arr, resultLength) {
-  const perm = [];
+function combinations(arr, resultLength) {
+  const combinationsArr = [];
+  const array = new Array(...arr);
+  const arrayLength = array.length;
+  const n = resultLength;
+  let loopCounter = 0;
 
-  for (let i = 0; i <= arr.length - resultLength; i++) {
-    const array = [arr[i]];
+  function loop(n, k) {
+    for (let i = 0; i < k; i++) {
+      if (n > 0) {
+        if (n === 1) {
+          loopCounter += 1;
+          const permutation = [];
 
-    for (let j = i + 1; j <= arr.length - resultLength + 1; j++) {
-      array.push(arr[j]);
+          for (let i = 0; i < resultLength; i++) {
+            if (i === 0) {
+              const index = (loopCounter - 1) % k;
+              permutation.unshift(array[index]);
+            } else {
+              const index = Math.trunc((loopCounter - 1) / k ** i) % k;
 
-      for (let k = j + 1; k <= arr.length - resultLength + 2; k++) {
-        arr.push(arr[k]);
+              permutation.unshift(array[index]);
+            }
+          }
+          combinationsArr.push(permutation);
+        }
+        loop(n - 1, k);
       }
     }
-    perm.push(array);
+
+    return;
   }
 
-  return perm;
+  loop(n, arrayLength);
+
+  console.log(JSON.stringify(combinationsArr));
+
+  return combinationsArr;
 }
 
-const permutations = partialFactorial(arr, 3);
-console.log(JSON.stringify(permutations))
+combinations(arr, 3);
+
+// if (n <= 0) {
+//     return [];
+//   } else if (n > array.length) {
+//     n = array.length;
+//   }
