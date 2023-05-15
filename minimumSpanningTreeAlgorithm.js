@@ -21,6 +21,26 @@ const graph = [
   ],
 ];
 
+function treePermutations(node, graph) {
+  const nodes = new Array(...graph[0]);
+  const edges = new Array(...graph[1]);
+
+  edges.forEach((el, i) => {
+    el.push(i);
+  });
+
+  const perm = [];
+
+  
+
+
+
+
+  console.log(JSON.stringify(edges));
+}
+
+treePermutations(3, graph);
+
 function spanningTree(graph, node) {
   const nodes = new Array(...graph[0]);
   const edges = new Array(...graph[1]);
@@ -29,7 +49,6 @@ function spanningTree(graph, node) {
   tree[node] = {};
   const nodesInTree = [node];
   let weight = 0;
-  const edgesInTree = [];
 
   function treeBranch(tree, edges) {
     for (let key in tree) {
@@ -42,7 +61,6 @@ function spanningTree(graph, node) {
           nodesInTree.push(el[1]);
           tree[key][el[1]] = {};
           weight += el[2];
-          edgesInTree.push(el);
         });
       }
 
@@ -53,9 +71,6 @@ function spanningTree(graph, node) {
   }
 
   treeBranch(tree, edges);
-
-  console.log(nodesInTree);
-  console.log(edgesInTree);
 
   return [tree, nodesInTree, weight];
 }
