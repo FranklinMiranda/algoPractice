@@ -6,16 +6,35 @@ const n = 3;
 
 const counter = [];
 
+const indexArr = [];
+
+for (let i = 0; i < n; i++) {
+  indexArr.push(0);
+}
+
+console.log(indexArr);
+
 function nestedForLoop(n, k) {
   for (let i = k; i > 0; i--) {
     if (n > 0) {
-      console.log(n, i);
-
       if (n === 1) {
         counter.push(1);
+
+        indexArr[indexArr.length - n] += 1;
+
+        console.log(indexArr);
+
+        for (let i = 0; i <= indexArr.length; i++) {
+          for (let j = 0; j < indexArr.length; j++) {
+            
+
+
+
+          }
+        }
       }
 
-      nestedForLoop(n - 1, i);
+      nestedForLoop(n - 1, k);
     }
   }
 
