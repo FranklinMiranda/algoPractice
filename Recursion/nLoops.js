@@ -25,12 +25,7 @@ function nestedForLoop(n, k) {
         console.log(indexArr);
 
         for (let i = 0; i <= indexArr.length; i++) {
-          for (let j = 0; j < indexArr.length; j++) {
-            
-
-
-
-          }
+          for (let j = 0; j < indexArr.length; j++) {}
         }
       }
 

@@ -4,28 +4,13 @@
 
 const arr = [1, 2, 3];
 
-
-
-
-
 function permute(arr) {
   if (arr.length === 1) {
     return arr;
   }
 
-
-  arr.forEach((el) => {
-
-
-
-
-
-  })
-
-
-  
-  
+  arr.forEach((el) => {});
 }
 
 const arrPermutations = permute(arr);
-console.log(JSON.stringify(arrPermutations))
+console.log(JSON.stringify(arrPermutations));
