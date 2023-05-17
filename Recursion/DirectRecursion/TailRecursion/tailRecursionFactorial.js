@@ -3,15 +3,11 @@
 // Description: An recursive algorithm to find a factorial of a number
 
 function recursiveFactorial(n, sum = 1) {
-  if (n === 1) {
-    sum *= n;
+  if (n === 0) {
     return sum;
   }
 
-  sum *= n
-
-  return recursiveFactorial(n - 1, sum);
+  return recursiveFactorial(n - 1, sum * n);
 }
 
-
-console.log(recursiveFactorial(5))
+console.log(recursiveFactorial(5));
