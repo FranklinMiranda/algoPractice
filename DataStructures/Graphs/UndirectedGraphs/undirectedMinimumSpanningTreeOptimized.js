@@ -5,21 +5,21 @@
 const graph = [
   [1, 2, 3, 4, 5, 6],
   [
-    [[1, 6], 12],
-    [[1, 5], 4],
-    [[1, 4], 8],
-    [[1, 3], 7],
-    [[1, 2], 5],
-    [[2, 6], 9],
-    [[2, 5], 15],
-    [[2, 4], 13],
+    [[1, 6], 5],
+    [[1, 5], 5],
+    [[1, 4], 5],
+    [[1, 3], 8],
+    [[1, 2], 8],
+    [[2, 6], 8],
+    [[2, 5], 8],
+    [[2, 4], 8],
     [[2, 3], 8],
-    [[3, 6], 6],
-    [[3, 5], 3],
-    [[3, 4], 5],
-    [[4, 6], 3],
-    [[4, 5], 5],
-    [[5, 6], 21],
+    [[3, 6], 8],
+    [[3, 5], 8],
+    [[3, 4], 8],
+    [[4, 6], 8],
+    [[4, 5], 8],
+    [[5, 6], 8],
   ],
 ];
 
@@ -135,8 +135,10 @@ function minimumSpanningTree(nodes, edges, nodesInTree, edgesInTree = []) {
   }
 }
 
-minimumSpanningTree(graph[0], graph[1], [1]);
+minimumSpanningTree(graph[0], graph[1], [2]);
+
+for (let i = 0; i < spanningTrees.length; i++) {
+  console.log(JSON.stringify(spanningTrees[i]));
+}
 
 spanningTrees.sort((a, b) => a[1] - b[1]);
-
-console.log(JSON.stringify(spanningTrees[0]));
