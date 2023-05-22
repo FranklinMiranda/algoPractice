@@ -31,11 +31,6 @@ function treePermutations(node, graph) {
 
   const perm = [];
 
-  
-
-
-
-
   console.log(JSON.stringify(edges));
 }
 
